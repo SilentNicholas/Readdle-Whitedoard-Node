@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  node:
+    container_name: readdle_whiteboard_node
+    build: ./etc/node
+    volumes:
+      - ./:/usr/src/app
+    entrypoint: ['sh', "-c"]
+    command: ["npm install && node index.js"]
+    networks:
+      - readdle
+
+networks:
+  readdle:
